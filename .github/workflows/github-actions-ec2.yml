@@ -16,17 +16,17 @@ jobs:
       - name: Upload Files to EC2
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY1 }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS1 }}
+          REMOTE_USER: ${{ secrets.USERNAME1 }}
+          TARGET: ${{ secrets.TARGET_DIR1 }}
 
       - name: Execute Commands on EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.HOST_DNS }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.HOST_DNS1 }}
+          username: ${{ secrets.USERNAME1 }}
+          key: ${{ secrets.EC2_SSH_KEY1 }}
           script: |
             sudo apt update
             sudo apt install nginx -y
